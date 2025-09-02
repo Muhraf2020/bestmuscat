@@ -561,59 +561,43 @@ async function init() {
   function cardHTML(t) {
   const detailUrl  = `tool.html?slug=${encodeURIComponent(t.slug)}`;
   const websiteUrl = t.url ? esc(t.url) : "";
-  const domain     = t.url ? hostnameFromUrl(t.url) : "";
+  const imgSrc     = t.image || "";
+  const title      = esc(t.name);
+  const subtitle   = esc(t.tagline || t.description.slice(0, 120) || "");
 
-  // Logo links to details (alt, lazy, async)
-  const logo = t.logo
-    ? (() => {
-        const withV = `${t.logo}${t.logo.includes('?') ? '&' : '?'}v=${CONFIG.ASSET_VERSION}`;
-        return `
-          <a href="${detailUrl}" class="logo-link" aria-label="${esc(t.name)} details">
-            <img class="logo"
-                 src="${esc(withV)}"
-                 alt="${esc(t.name)} logo"
-                 loading="lazy"
-                 decoding="async"
-                 referrerpolicy="no-referrer"
-                 data-domain="${esc(domain)}" />
-          </a>`;
-      })()
-    : `
-      <a href="${detailUrl}" class="logo-link" aria-label="${esc(t.name)} details">
-        <div class="logo" role="img" aria-label="${esc(t.name)} logo">
-          ${esc(initials(t.name) || "AI")}
-        </div>
-      </a>`;
+  const cats = (t.categories || []).slice(0,2).map(c=>`<span class="badge">${esc(c)}</span>`).join(" ");
+  const tagChips = (t.tags || []).slice(0,5).map(c=>`<span class="tag">${esc(c)}</span>`).join(" ");
 
-  const cats = t.categories.slice(0,2).map(c=>`<span class="badge">${esc(c)}</span>`).join(" ");
-  const tagChips = t.tags.slice(0,5).map(c=>`<span class="tag">${esc(c)}</span>`).join(" ");
-  // Features and pricing are unused for the Best Muscat directory
-  const icons = "";
-
-  // Only show external Website button if we have a URL
   const websiteBtn = websiteUrl
-    ? `<div class="cta"><a href="${websiteUrl}" aria-label="Visit ${esc(t.name)} website" target="_blank" rel="noopener">Website ↗</a></div>`
+    ? `<div class="cta"><a href="${websiteUrl}" aria-label="Visit ${title} website" target="_blank" rel="noopener">Website ↗</a></div>`
     : "";
 
+  // Full-bleed image on top; if missing, show initials placeholder
+  const topImage = imgSrc
+    ? `
+      <a href="${detailUrl}" class="card-img" aria-label="${title} details">
+        <img src="${esc(imgSrc)}" alt="${title}" loading="lazy" decoding="async"
+             onerror="this.closest('.card-img').classList.add('img-fallback'); this.remove();" />
+      </a>`
+    : `
+      <a href="${detailUrl}" class="card-img img-fallback" aria-label="${title} details">
+        <div class="img-placeholder">${esc((t.name||'').split(/\s+/).slice(0,2).map(s=>s[0]?.toUpperCase()||'').join('')||'BM')}</div>
+      </a>`;
+
   return `
-    <article class="card">
-      ${logo}
-      <div style="flex:1">
-        <div class="title">
-          <h2 style="font-size:1.05rem; margin:0">
-            <a href="${detailUrl}" title="${esc(t.name)} details" style="text-decoration:none; color:inherit">${esc(t.name)}</a>
-          </h2>
-        </div>
-        <p style="margin:6px 0 8px; color:#333">
-          ${esc(t.tagline || t.description.slice(0,120))}
-        </p>
+    <article class="card card--place">
+      ${topImage}
+      <div class="card-body">
+        <h2 class="card-title"><a href="${detailUrl}" title="${title}" class="card-link">${title}</a></h2>
+        <p class="card-sub">${subtitle}</p>
         <div class="badges">${cats}</div>
         <div class="tags">${tagChips}</div>
+        ${websiteBtn}
       </div>
-      ${websiteBtn}
     </article>
   `;
 }
+
 
 
 
