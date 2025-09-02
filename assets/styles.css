@@ -660,3 +660,7 @@ img.logo {
 @media (max-width: 1024px) { .hscroll .card { min-width: 280px; } }
 @media (max-width: 820px)  { .hscroll .card { min-width: 260px; } }
 
+/* Places to visit section */
+.topics { margin: 24px 0 8px; }
+.topics .section-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.topics-list { display:flex; flex-wrap:wrap; gap:10px; }
