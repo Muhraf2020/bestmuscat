@@ -111,55 +111,81 @@
           <span id="page-info" aria-live="polite"></span>
         </div>
       </div>
-       <!-- Category chips row -->
+
+      <!-- Category chips row -->
       <div id="chips" class="chips" aria-label="Filter by category"></div>
 
       <!-- Count -->
       <div id="count" class="count" aria-live="polite"></div>
 
-      <!-- SHOWCASE ROWS (Hotels / Restaurants / Schools) -->
-<div id="showcase">
-  <!-- Malls -->
-<section class="cat-section">
-  <div class="section-head">
-    <h2>Best Malls</h2>
-    <a class="see-all" href="?category=malls">Show All →</a>
-  </div>
-  <div id="showcase-malls" class="hscroll" aria-label="Best Malls"></div>
-</section>
+      <!-- SHOWCASE ROWS (Malls / Hotels / Restaurants / Schools) -->
+      <div id="showcase">
+        <!-- Malls -->
+        <section class="cat-section">
+          <div class="section-head">
+            <h2>Best Malls</h2>
+            <a class="see-all" href="?category=malls">Show All →</a>
+          </div>
+          <div id="showcase-malls" class="hscroll" aria-label="Best Malls"></div>
+        </section>
 
-  <!-- Hotels -->
-  <section class="cat-section">
-    <div class="section-head">
-      <h2>Best Hotels</h2>
-      <a class="see-all" href="?category=hotels">Show All →</a>
-    </div>
-    <div id="showcase-hotels" class="hscroll" aria-label="Best Hotels"></div>
-  </section>
+        <!-- Hotels -->
+        <section class="cat-section">
+          <div class="section-head">
+            <h2>Best Hotels</h2>
+            <a class="see-all" href="?category=hotels">Show All →</a>
+          </div>
+          <div id="showcase-hotels" class="hscroll" aria-label="Best Hotels"></div>
+        </section>
 
-  <!-- Restaurants -->
-  <section class="cat-section">
-    <div class="section-head">
-      <h2>Best Restaurants</h2>
-      <a class="see-all" href="?category=restaurants">Show All →</a>
-    </div>
-    <div id="showcase-restaurants" class="hscroll" aria-label="Best Restaurants"></div>
-  </section>
+        <!-- Restaurants -->
+        <section class="cat-section">
+          <div class="section-head">
+            <h2>Best Restaurants</h2>
+            <a class="see-all" href="?category=restaurants">Show All →</a>
+          </div>
+          <div id="showcase-restaurants" class="hscroll" aria-label="Best Restaurants"></div>
+        </section>
 
-  <!-- Schools -->
-  <section class="cat-section">
-    <div class="section-head">
-      <h2>Best Schools</h2>
-      <a class="see-all" href="?category=schools">Show All →</a>
-    </div>
-    <div id="showcase-schools" class="hscroll" aria-label="Best Schools"></div>
-  </section>
-</div>
+        <!-- Schools -->
+        <section class="cat-section">
+          <div class="section-head">
+            <h2>Best Schools</h2>
+            <a class="see-all" href="?category=schools">Show All →</a>
+          </div>
+          <div id="showcase-schools" class="hscroll" aria-label="Best Schools"></div>
+        </section>
+      </div>
 
-      <!-- Results grid -->
+      <!-- PLACES TO VISIT IN MUSCAT -->
+      <section id="visit-muscat" class="topics">
+        <div class="section-head">
+          <h2>Places to visit in Muscat</h2>
+        </div>
+
+        <div class="topics-list">
+          <a class="chip" href="?q=today">today</a>
+          <a class="chip" href="?q=Iconic%20Buildings">Iconic Buildings</a>
+          <a class="chip" href="?q=Museums">Museums</a>
+          <a class="chip" href="?q=Theme%20Parks">Theme Parks</a>
+          <a class="chip" href="?q=Water%20Parks">Water Parks</a>
+          <a class="chip" href="?q=Aquariums">Aquariums</a>
+          <a class="chip" href="?q=Beaches">Beaches</a>
+          <a class="chip" href="?q=Parks">Parks</a>
+          <a class="chip" href="?q=Zoos">Zoos</a>
+          <a class="chip" href="?q=Experiences">Experiences</a>
+          <a class="chip" href="?q=Observation%20Decks">Observation Decks</a>
+          <a class="chip" href="?q=Art%20Galleries">Art Galleries</a>
+          <a class="chip" href="?q=Theatre%20%26%20Performance%20Venues">Theatre &amp; Performance Venues</a>
+          <a class="chip" href="?q=Stadiums">Stadiums</a>
+          <a class="chip" href="?q=Arenas">Arenas</a>
+        </div>
+      </section>
+
+      <!-- Results grid (hidden on home by app.js; shown on filter/search) -->
       <section id="results" class="grid" aria-live="polite"></section>
 
-      <!-- Pagination -->
+      <!-- Pagination (hidden on home by app.js; shown on filter/search) -->
       <nav id="pagination" class="pagination" aria-label="Pagination" hidden>
         <button id="prev">◀ Prev</button>
         <span id="page" aria-live="polite"></span>
@@ -178,7 +204,7 @@
 
   <!-- Scripts (order matters) -->
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-  <script src="assets/app.js?v=1"></script>
+  <script src="assets/app.js?v=4"></script>
   <script id="jsonld-list" type="application/ld+json"></script>
 
   <noscript>Your browser needs JavaScript enabled to use search and filters.</noscript>
