@@ -395,23 +395,24 @@ async function init() {
     }
 
     tools = data.map(t => ({
-      id: t.id || t.slug || Math.random().toString(36).slice(2),
-      slug: (t.slug || (t.name||"").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g,"")).slice(0,128),
-      name: t.name || "Untitled",
-      url: t.url || "#",
-      tagline: t.tagline || "",
-      description: t.description || "",
-      pricing: ["free","freemium","paid"].includes(t.pricing) ? t.pricing : "freemium",
-      categories: Array.isArray(t.categories) ? t.categories.filter(Boolean) : [],
-      tags: Array.isArray(t.tags) ? t.tags.filter(Boolean) : [],
-      logo: t.logo || "",
-      evidence_cites: Boolean(t.evidence_cites),
-      local_onprem: Boolean(t.local_onprem),
-      edu_discount: Boolean(t.edu_discount),
-      free_tier: "free"===t.pricing || Boolean(t.free_tier),
-      beta: Boolean(t.beta),
-      created_at: t.created_at || new Date().toISOString().slice(0,10)
-    }));
+  id: t.id || t.slug || Math.random().toString(36).slice(2),
+  slug: (t.slug || (t.name||"").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g,"")).slice(0,128),
+  name: t.name || "Untitled",
+  url: t.url || "#",
+  tagline: t.tagline || "",
+  description: t.description || "",
+  pricing: ["free","freemium","paid"].includes(t.pricing) ? t.pricing : "freemium",
+  categories: Array.isArray(t.categories) ? t.categories.filter(Boolean) : [],
+  tags: Array.isArray(t.tags) ? t.tags.filter(Boolean) : [],
+  logo: t.logo || "",
+  image: t.image || t.hero || t.photo || t.logo || "",   // NEW: prefer real photo, fallback to logo
+  evidence_cites: Boolean(t.evidence_cites),
+  local_onprem: Boolean(t.local_onprem),
+  edu_discount: Boolean(t.edu_discount),
+  free_tier: "free"===t.pricing || Boolean(t.free_tier),
+  beta: Boolean(t.beta),
+  created_at: t.created_at || new Date().toISOString().slice(0,10)
+}));
 
     // Fuse index
     fuse = new Fuse(tools, {
