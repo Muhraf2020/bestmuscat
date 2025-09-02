@@ -428,6 +428,7 @@ function renderShowcases() {
 
   const renderInto = (el, items) => { if (el) el.innerHTML = items.map(cardHTML).join(""); };
 
+  renderInto(elShowMalls,   pick('malls'));
   renderInto(elShowHotels,  pick('hotels'));
   renderInto(elShowRests,   pick('restaurants'));
   renderInto(elShowSchools, pick('schools'));
