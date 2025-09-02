@@ -78,6 +78,7 @@
   const elPage       = document.getElementById("page");
   const elPageInfo   = document.getElementById("page-info");
   const elShowcase   = document.getElementById("showcase");
+  const elShowMalls  = document.getElementById("showcase-malls");
   const elShowHotels = document.getElementById("showcase-hotels");
   const elShowRests  = document.getElementById("showcase-restaurants");
   const elShowSchools= document.getElementById("showcase-schools");
