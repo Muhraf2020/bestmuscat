@@ -543,11 +543,24 @@ renderShowcases();
       }
     }
     updateChipCounts(countsBySlug);
-    // Hide showcase rows when any filter/search is active; show when nothing is selected
-if (elShowcase) {
-  const show = (selectedCategories.size === 0) && !currentQuery;
-  elShowcase.style.display = show ? "" : "none";
+    // Toggle home sections (showcase + topics) vs. listing grid
+const isHome = (selectedCategories.size === 0) && !currentQuery;
+
+if (elShowcase) elShowcase.style.display = isHome ? "" : "none";
+
+const elVisit = document.getElementById('visit-muscat');
+if (elVisit) elVisit.style.display = isHome ? "" : "none";
+
+// Grid/pagination/count/meta should only show on filtered/search views
+if (elGrid)       elGrid.style.display       = isHome ? "none" : "";
+if (elPagination) elPagination.style.display = isHome ? "none" : "";
+if (elCount)      elCount.style.display      = isHome ? "none" : "";
+
+// The "page-info" lives inside a toolbar row; hide that row if empty
+if (elPageInfo && elPageInfo.parentElement) {
+  elPageInfo.parentElement.style.display = isHome ? "none" : "";
 }
+
 
     // --- END CATEGORY COUNTS ---
 
