@@ -443,3 +443,65 @@ img.logo {
   .hero-title { font-size: 32px; }
   .hero-subtitle { font-size: 16px; }
 }
+
+/* ==============================
+   STICKY HEADER
+   ============================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header-logo img {
+  height: 40px;
+  display: block;
+}
+
+.header-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-search input {
+  width: 100%;
+  max-width: 480px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-suggest {
+  display: inline-block;
+  background: #0b2a57;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.btn-suggest:hover {
+  background: #0d356e;
+}
+
