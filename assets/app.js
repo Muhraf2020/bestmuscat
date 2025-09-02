@@ -77,6 +77,11 @@
   const elNext       = document.getElementById("next");
   const elPage       = document.getElementById("page");
   const elPageInfo   = document.getElementById("page-info");
+  const elShowcase   = document.getElementById("showcase");
+  const elShowHotels = document.getElementById("showcase-hotels");
+  const elShowRests  = document.getElementById("showcase-restaurants");
+  const elShowSchools= document.getElementById("showcase-schools");
+
 
   // ---------- UTIL ----------
   const qs = new URLSearchParams(location.search);
@@ -414,6 +419,21 @@ async function init() {
   created_at: t.created_at || new Date().toISOString().slice(0,10)
 }));
 
+  // Render the 3 showcase rows (first 6 items per category)
+function renderShowcases() {
+  const pick = (slug) => tools
+    .filter(t => (t.categories || []).some(c => slugify(c) === slug || c === slug))
+    .slice(0, 6);
+
+  const renderInto = (el, items) => { if (el) el.innerHTML = items.map(cardHTML).join(""); };
+
+  renderInto(elShowHotels,  pick('hotels'));
+  renderInto(elShowRests,   pick('restaurants'));
+  renderInto(elShowSchools, pick('schools'));
+}
+renderShowcases();
+
+
     // Fuse index
     fuse = new Fuse(tools, {
       includeScore: true,
@@ -521,6 +541,12 @@ async function init() {
       }
     }
     updateChipCounts(countsBySlug);
+    // Hide showcase rows when any filter/search is active; show when nothing is selected
+if (elShowcase) {
+  const show = (selectedCategories.size === 0) && !currentQuery;
+  elShowcase.style.display = show ? "" : "none";
+}
+
     // --- END CATEGORY COUNTS ---
 
     visible = arr;
