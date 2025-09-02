@@ -366,3 +366,80 @@ img.logo {
   content-visibility: auto;
   contain-intrinsic-size: 200px;
 }
+/* ==============================
+   HERO (Top Banner)
+   ============================== */
+.hero {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 12px;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 980px;
+  background: #0b2a57;            /* deep navy */
+  color: #fff;
+  border-radius: 28px;
+  padding: 44px 28px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+.hero-logo {
+  height: 48px;                    /* tweak if your logo looks too small/big */
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.hero-title {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 800;
+  margin: 6px 0 10px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: .95;
+  margin: 0 auto 18px;
+  max-width: 720px;
+}
+
+.hero-try {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.hero-try > span {
+  opacity: .9;
+}
+
+.hero .chip {
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0b2a57;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.6);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.hero .chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+
+/* Rounded container edges on very small screens look better with tighter radius */
+@media (max-width: 520px) {
+  .hero-card { border-radius: 20px; padding: 28px 18px; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 16px; }
+}
