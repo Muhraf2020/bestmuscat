@@ -1,0 +1,368 @@
+
+/* FILE: assets/styles.css */
+:root {
+  --maxw: 1120px;
+  --gap: 14px;
+  --chip: #eef2f7;
+  --chip-on:#d6e4ff;
+  --muted:#555;
+  --border:#e6e6e6;
+  --bg:#fafafa;
+  --brand:#0b57d0;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; background:#fff; }
+a { color: var(--brand); }
+header { border-bottom:1px solid var(--border); background:var(--bg); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 18px; }
+h1 { font-size: 1.6rem; margin: 0 0 6px; }
+.lead { color: var(--muted); margin: 0 0 10px; }
+.bar { display:flex; flex-wrap:wrap; gap: var(--gap); align-items:center; margin: 12px 0; }
+.bar input[type="search"] { flex: 1 1 280px; padding:10px 12px; border:1px solid var(--border); border-radius:8px; }
+.bar select { padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:#fff; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0; }
+.chip { padding:8px 10px; border-radius:999px; background:var(--chip); cursor:pointer; border:1px solid var(--border); user-select:none; }
+.chip[aria-pressed="true"] { background: var(--chip-on); border-color:#a3c0ff; }
+.count { color: var(--muted); font-size: 0.95rem; margin: 6px 0 12px; }
+/* Layout the results in a responsive three‑column grid. auto‑fill ensures we get
+   as many columns as will fit, down to a minimum width of 280px. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+.card {
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+/* The first child of the card is the logo link wrapping the image or initials.
+   Make it span the full width and maintain a fixed height. */
+.card .logo-link {
+  display:block;
+}
+.card .logo {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px 12px 0 0;
+  background:#f3f3f3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:2rem;
+}
+.title {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:4px;
+}
+.badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.badge { background:#f1f1f1; border-radius:999px; padding:2px 8px; font-size:.8rem; border:1px solid var(--border); }
+.tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.tag { background:#fafafa; border:1px dashed var(--border); border-radius:6px; padding:2px 6px; font-size:.8rem; color:#333; }
+.cta {
+  margin-top:12px;
+}
+.cta a {
+  display:inline-block;
+  padding:8px 10px;
+  border-radius:8px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+nav.pagination { display:flex; justify-content:center; align-items:center; gap:10px; margin: 18px 0; }
+nav.pagination button { padding:8px 12px; border-radius:8px; border:1px solid var(--border); background:#fff; cursor:pointer; }
+nav.pagination button[disabled]{ opacity:.5; cursor:not-allowed; }
+details.checklist { border:1px solid var(--border); border-radius:12px; padding:12px 14px; background:#fff; margin: 18px 0; }
+footer { border-top:1px solid var(--border); background:var(--bg); }
+small.disclaimer { display:block; color:#444; line-height:1.45; }
+.empty { padding:22px; border:1px dashed var(--border); border-radius:12px; background:#fff; text-align:center; color:#444; }
+.meta { display:flex; gap:8px; align-items:center; color:#444; font-size:.9rem; }
+.icons { display:none; }
+.right { display:none; }
+.toolbar { display:flex; flex-wrap:wrap; gap: var(--gap); align-items:center; justify-content:space-between; }
+.link-btn { padding:8px 12px; border-radius:8px; border:1px solid var(--border); background:#fff; text-decoration:none; color:var(--brand); font-weight:600;}
+.visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+hr.sep { border:0; border-top:1px solid var(--border); margin:14px 0; }
+.tool-hero { display:flex; gap:14px; align-items:flex-start; }
+.tool-hero .logo { width:80px; height:80px; font-size:1.2rem; }
+.related { display:grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: var(--gap); }
+@media (min-width:700px){ .related{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* button styles (added 2025-08-24) */
+.pager-numbers { display: inline-flex; gap: 6px; align-items: center; margin: 0 10px; flex-wrap: wrap; }
+.page-btn { border: 1px solid #ddd; background: #fff; border-radius: 8px; padding: 4px 10px; font-size: 0.95rem; cursor: pointer; }
+.page-btn:hover { background: #f6f6f6; }
+.page-btn.active { background: #111; color: #fff; border-color: #111; }
+.dots { color: #999; padding: 0 2px; }
+
+/* Primary (blue) chip */
+.chip--primary {
+  background: #0b5fff;
+  color: #fff;
+  border-color: #0b5fff;
+}
+.chip--primary:hover { background: #0a52e3; border-color: #0a52e3; }
+.chip--primary:active { transform: translateY(1px); }
+.chip--primary:focus-visible { outline: 2px solid #0b5fff; outline-offset: 2px; }
+
+/* Extra safety: if the element has the id, make it blue even without the class */
+#clear-filters {
+  background: #0b5fff;
+  color: #fff;
+  border-color: #0b5fff;
+}
+
+/* -------------------------------------------
+   Category chip counts (little number badges)
+   - Shows a small rounded badge with the count
+   - Turns inverted when the chip is active
+   ------------------------------------------- */
+
+/* Default badge on all chips */
+.chip .chip-count {
+  margin-left: .4rem;     /* space between label and badge */
+  background: #eee;       /* light gray badge background */
+  border-radius: 10px;    /* pill shape */
+  padding: 0 .45rem;      /* horizontal padding for legibility */
+  font-size: .85em;       /* slightly smaller than chip text */
+}
+
+/* When a chip is active/pressed, invert the badge for contrast */
+.chip.active .chip-count {
+  background: #111;       /* match active chip’s dark background */
+  color: #fff;            /* white text for contrast */
+}
+
+/* -------------------------------------------
+   Subscribe box styles (newsletter signup)
+   - Lightweight, accessible layout that works on mobile
+   - Matches your existing visual tone
+   ------------------------------------------- */
+.subscribe {
+  margin: 24px 0;
+  padding: 16px;
+  background: #f8f9fb;
+  border: 1px solid #e6e8eb;
+  border-radius: 12px;
+}
+.subscribe h2 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+.subscribe .small {
+  font-size: .9rem;
+  color: #666;
+  margin: 0 0 8px;
+}
+.subscribe form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;              /* stack on small screens */
+  align-items: center;
+  margin: 6px 0;
+}
+/* Style both name (text) and email inputs in the subscribe box */
+.subscribe input[type="text"],
+.subscribe input[type="email"] {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+}
+.subscribe .consent {
+  font-size: .9rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.subscribe button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #0b5fff;
+  background: #0b5fff;
+  color: #fff;
+  cursor: pointer;
+}
+.subscribe button:hover {
+  background: #0a52e3;
+  border-color: #0a52e3;
+}
+
+/* Screen-reader-only utility (already used elsewhere) */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* -------------------------------------------
+   Category chip counts (little number badges)
+   - Shows a small rounded badge with the count
+   - Turns inverted when the chip is active
+   ------------------------------------------- */
+.chip .chip-count {
+  margin-left: .4rem;     /* space between label and badge */
+  background: #eee;       /* light gray badge background */
+  border-radius: 10px;    /* pill shape */
+  padding: 0 .45rem;      /* horizontal padding for legibility */
+  font-size: .85em;       /* slightly smaller than chip text */
+}
+.chip.active .chip-count {
+  background: #111;       /* match active chip’s dark background */
+  color: #fff;            /* white text for contrast */
+}
+
+/* ===== Book Banner (index.html) ===== */
+.book-banner {
+  margin: 32px 0 16px;
+  background: linear-gradient(135deg, #f6f8ff 0%, #eef3ff 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(17,24,39,.05);
+}
+.book-banner__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 900px) {
+  .book-banner__inner {
+    grid-template-columns: 1.3fr 1fr; /* text left, visual right */
+    align-items: center;
+  }
+}
+.book-banner__title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+.book-banner__subtitle {
+  margin: 4px 0 12px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+.book-banner__blurb {
+  margin: 0 0 10px;
+  color: #222;
+}
+.book-banner__points {
+  margin: 0 0 14px;
+  padding-left: 18px;
+}
+.book-banner__points li { margin: 6px 0; }
+
+.book-banner__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 6px;
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid #d9e2ff;
+  font-weight: 600;
+}
+.btn.primary {
+  background: #0b57d0;
+  color: #fff;
+  border-color: #0b57d0;
+}
+.btn.primary:hover { filter: brightness(0.95); }
+.btn.subtle {
+  background: #fff;
+  color: #0b57d0;
+}
+.btn.subtle:hover { background: #f5f7ff; }
+
+.book-banner__note {
+  margin: 8px 0 0;
+  font-size: .95rem;
+  color: #333;
+}
+
+.book-banner__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 10px;
+  font-size: .9rem;
+  color: #333;
+}
+@media (max-width: 700px) {
+  .book-banner__stats { display: none; }
+}
+
+/* Right-side visual */
+.book-banner__visual {
+  display: grid;
+  place-items: center;
+}
+.book-banner__visual img {
+  width: 260px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(17,24,39,.15);
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+/* ================================
+   Book Banner: Note styling
+   -------------------------------
+   This styles the "living appendix"
+   message that appears above the
+   book title in the banner.
+   ================================ */
+.book-banner__note {
+  margin: 0 0 14px;     /* add bottom spacing before the title */
+  font-size: 1rem;      /* keep text at a readable base size */
+  color: #111;          /* dark neutral text color for emphasis */
+}
+
+/* When the note text is wrapped in <strong><em>...</em></strong>,
+   apply a branded highlight style (blue, italic, bold). */
+.book-banner__note strong em {
+  color: #0b57d0;       /* brand blue highlight */
+  font-style: italic;   /* italic for emphasis */
+  font-weight: 600;     /* semi-bold weight for visibility */
+}
+
+/* Reserve space for logos so cards don't jump when images load */
+.card .logo,
+.logo-link .logo,
+img.logo {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  object-fit: contain;
+}
+
+/* Chip count bubble: reserve space so chip width doesn't jump */
+.chip .chip-count {
+  display: inline-block;
+  min-width: 1.8em;
+  text-align: center;
+}
+
+/* Paint large lists faster; the browser can skip offscreen cards */
+.card {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}

@@ -1,0 +1,117 @@
+<!-- FILE: index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basics -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Title & Description -->
+  <title>Best Muscat Directory – Discover Muscat’s Top Hotels, Restaurants, Schools, Spas, Clinics & Malls</title>
+  <meta name="description" content="Explore Muscat’s premier hotels, restaurants, schools, spas, clinics and malls. Search and filter by category or keyword to find your next destination in Oman’s capital." />
+
+  <!-- Canonical (always your absolute custom domain) -->
+  <!-- Set the canonical URL when deploying the site (updated dynamically via app.js) -->
+  <link rel="canonical" href="https://bestmuscat.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Muscat Directory" />
+  <meta property="og:description" content="Discover Muscat’s top hotels, restaurants, schools, spas, clinics and malls." />
+  <meta property="og:url" content="https://bestmuscat.com/" />
+  <meta property="og:image" content="assets/og-default.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Muscat Directory" />
+  <meta name="twitter:description" content="Discover Muscat’s top hotels, restaurants, schools, spas, clinics and malls." />
+  <meta name="twitter:image" content="assets/og-default.jpg" />
+
+  <!-- Favicon & CSS -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/styles.css?v=5" />
+
+  <!-- Performance: preconnect/dns-prefetch to icon providers -->
+  <link rel="preconnect" href="https://icon.horse" crossorigin>
+  <link rel="preconnect" href="https://www.google.com" crossorigin>
+  <link rel="dns-prefetch" href="//icon.horse">
+  <link rel="dns-prefetch" href="//www.google.com">
+
+
+  <!-- JSON-LD: WebSite (with on-site search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Best Muscat Directory",
+    "url": "https://bestmuscat.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://bestmuscat.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Best Muscat Directory",
+    "url": "https://bestmuscat.com/",
+    "logo": "assets/logo.png"
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Best Muscat Directory</h1>
+      <p class="lead">Explore Muscat’s finest hotels, restaurants, schools, spas, clinics and malls. Search and filter by category or keyword to find your next destination.</p>
+
+      <div class="toolbar">
+        <div class="bar" role="search">
+          <label for="search" class="visually-hidden" aria-hidden="true">Search businesses</label>
+          <input id="search" type="search" placeholder="Search by name, category, or tag…" aria-label="Search businesses" />
+        </div>
+        <div class="meta">
+          <span id="page-info" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div id="chips" class="chips" aria-label="Filter by category"></div>
+      <div id="count" class="count" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section id="results" class="grid" aria-live="polite"></section>
+      <nav id="pagination" class="pagination" aria-label="Pagination" hidden>
+        <button id="prev">◀ Prev</button>
+        <span id="page" aria-live="polite"></span>
+        <button id="next">Next ▶</button>
+      </nav>
+
+      <!-- Optional promotional sections (newsletter, book banner) have been removed for the Best Muscat directory -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small class="disclaimer">
+        <strong>Places & Links Disclaimer.</strong> The places and external links referenced on this website are provided solely for informational purposes. Inclusion does not constitute endorsement or preference; no affiliate relationships. Features, pricing, availability and policies may change—verify current details before you visit. External websites are not under our control; links may change. All trademarks belong to their owners. No warranty is expressed or implied.
+      </small>
+    </div>
+  </footer>
+
+  <!-- Fuse.js (only external script allowed) -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script src="assets/app.js?v=1"></script>
+  <script id="jsonld-list" type="application/ld+json"></script>
+
+  <noscript>Your browser needs JavaScript enabled to use search and filters.</noscript>
+</body>
+</html>
